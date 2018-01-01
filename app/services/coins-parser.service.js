@@ -144,7 +144,7 @@ function defaultStateHandler(symbol) {
 };
 
 function parsingPoundsOrPenceStateHandler(symbol, position) {
-    if (position > 0 && symbol === '') {
+    if (symbol === '') {
         return new StateHandlerResult('', State.Complete);
     }
 
@@ -164,6 +164,8 @@ function parsingPoundsOrPenceStateHandler(symbol, position) {
 function parsingPoundsStateHandler(symbol, position) {
     if (position > 0 && symbol === '') {
         return new StateHandlerResult('00', State.Complete);
+    } else if (position == 0 && symbol === '') {
+        throw new Error(ErrorMessages.missingValue);
     }
 
     checkValidSymbol(symbol);
@@ -176,7 +178,7 @@ function parsingPoundsStateHandler(symbol, position) {
         throw new Error(ErrorMessages.missingValue);
     }
 
-    throw new ErrorMessages(ErrorMessages.validCharacterInWrongPossition);
+    throw new Error(ErrorMessages.validCharacterInWrongPossition);
 };
 
 function parsingPenceStateHandler(symbol, position) {
@@ -216,8 +218,8 @@ class StateHandlerResult {
 }
 
 export const ErrorMessages = {
-    invalidCharacter: 'Invalid character',
-    validCharacterInWrongPossition: 'Valid character in the wrong position',
-    missingValue: 'Missing value',
-    emptyString: 'Input string can\'t be empty'
+    invalidCharacter: 'Invalid character.',
+    validCharacterInWrongPossition: 'Valid character in the wrong position.',
+    missingValue: 'Missing value.',
+    emptyString: 'Input string can\'t be empty.'
 };

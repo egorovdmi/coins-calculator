@@ -5,17 +5,17 @@
 .btn.btn-secondary {
     text-shadow: none; /* Prevent inheritance from `body` */
     color: rgba(255, 255, 255, 1);
-    background-color: rgba(0, 38, 127, 0.671);
-    border-color: hsla(0,0%,60%,.2);
-}
-.btn.btn-secondary:hover {
-    color: rgba(255, 255, 255, 1);
     background-color: hsla(222, 100%, 25%, 1);
     border-color: hsla(0,0%,60%,.2);
 }
+.btn.btn-secondary:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 38, 127, 0.671);
+  border-color: hsla(0,0%,60%,1);
+}
 .btn.btn-secondary:focus {
     color: rgba(255, 255, 255, 1);
-    background-color: rgba(0, 38, 127, 0.671);
+    background-color: hsla(222, 100%, 25%, 1);
     border-color: hsla(0,0%,60%,.2);
 }
 .form-control {

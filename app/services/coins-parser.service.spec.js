@@ -5,6 +5,7 @@ describe("coins-parser.service tests.", () => {
     const coinsParser = new CoinsParserService();
 
     it("toCanonical_validValues_rightCanonicalForms", () => {
+        expect(coinsParser.parse('1')).toBe(1);
         expect(coinsParser.parse('432')).toBe(432);
         expect(coinsParser.parse('213p')).toBe(213);
         expect(coinsParser.parse('125p')).toBe(125);
@@ -27,10 +28,12 @@ describe("coins-parser.service tests.", () => {
 
     it("parse_invalidMoneyString_throwValidCharacterInWrongPossitionError", () => {
         expect(() => coinsParser.parse('13p.02')).toThrowError(ErrorMessages.validCharacterInWrongPossition);
+        expect(() => coinsParser.parse('p')).toThrowError(ErrorMessages.validCharacterInWrongPossition);
     });
 
     it("parse_invalidMoneyString_throwMissingValueError", () => {
         expect(() => coinsParser.parse('£p')).toThrowError(ErrorMessages.missingValue);
+        expect(() => coinsParser.parse('£')).toThrowError(ErrorMessages.missingValue);
     });
 
     it("getCoins_123p_rightNumberOfCoins", () => {

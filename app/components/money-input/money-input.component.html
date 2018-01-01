@@ -1,0 +1,12 @@
+<input 
+    type="text" 
+    class="form-control form-control-lg" 
+    aria-describedby="info" 
+    placeholder="Enter the amount of money in GBP - British Pounds. For example, £16.23p"
+    value="{{value}}"
+    (input)="handleValueChange($event)"
+    (keypress)="handleKeypress($event)"
+    />
+<div *ngIf="hasError()" class="invalid-feedback" style="display:block">
+    {{errorMessage}}
+</div>

@@ -2,14 +2,21 @@
     <div class="site-wrapper-inner">
         <div class="coins-calculator-container">
             <div class="inner coins-calculator">
-                <h1>Coins Calculator</h1>
+                <h1 class="mt-4 mb-4">Coins Calculator</h1>
                 <p id="info" class="lead">Coins Calculator is an application that parses a number of pennies entered in an input field and calculates the minimum number of Sterling coins needed to make that amount.</p>
-                <form>
+                <form novalidate>
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-lg" aria-describedby="info" placeholder="Enter the amount of money in GBP - British Pounds. For example, £16.23p">
+                        <money-input 
+                            [value]="moneyText$ | async" 
+                            [errorMessage]="errorMessage$ | async" 
+                            (valueChange)="moneyTextChange($event)" 
+                            (complete)="calculate()">
+                        </money-input>
                     </div>
-                    <button type="button" class="btn btn-lg btn-secondary btn-block">Calculate</button>
+                    <button type="button" class="btn btn-lg btn-secondary btn-block" 
+                        (click)="calculate()">Calculate</button>
                 </form>
+                <coins-list [coinsWithAmount]="coinsList$ | async"></coins-list>
             </div>
         </div>
     </div>
