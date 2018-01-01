@@ -39,8 +39,8 @@ for(let i = 0; i < numbers.length; i++) {
 
 const State = {
     Default: 0,    // £ => ParsingPounds | . => ParsingPence | [0-9] => ParsingPoundsOrPence
-    ParsingPoundsOrPence: 1,  // [0-9] => ParsingPoundsOrPence | . => ParsingPence | p => Complete
-    ParsingPounds: 2, // [0-9] => ParsingPounds | . => ParsingPence | p => missingValue Error | any other valid character => validCharacterInWrongPossition Error
+    ParsingPoundsOrPence: 1,    // [0-9] => ParsingPoundsOrPence | . => ParsingPence | p => Complete
+    ParsingPounds: 2,    // [0-9] => ParsingPounds | . => ParsingPence | p => missingValue Error | any other valid character => validCharacterInWrongPossition Error
     ParsingPence: 3,    // [0-9] => ParsingPence | p => Complete | any valid character => validCharacterInWrongPossition Error
     Complete: 4    // any valid character => validCharacterInWrongPossition Error
 };

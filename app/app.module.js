@@ -8,7 +8,6 @@ import { SterlingCoinComponent } from './components/sterling-coin/sterling-coin.
 import { MoneyInputComponent } from './components/money-input/money-input.component';
 import { CoinsListComponent } from './components/coins-list/coins-list.component';
 import { CoinsParserService } from './services/coins-parser.service';
-
 import { reducers } from './reducers';
 import { AppEffects } from './effects/app.effects';
 
